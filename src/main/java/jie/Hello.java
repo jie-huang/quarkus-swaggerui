@@ -11,8 +11,8 @@ public class Hello {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   @Path("/api/{p:option1/|}hello")
-  public String withParam(@PathParam("p") String p) {
-    return "hello " + p;
+  public String withParam(@PathParam("p") Optional<String> p) {
+    return "hello " + p.orElse("world");
   }
 
   @GET
